@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.__pyc
+
+# VS Code
+.vscode/
+
+# Data
+results/data/
+*.csv
+
+# MoJoCo temporary files
+*.xml.bak
+
+# OS
+.DS_Store
