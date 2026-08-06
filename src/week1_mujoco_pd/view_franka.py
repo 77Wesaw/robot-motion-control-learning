@@ -18,6 +18,8 @@ data = mujoco.MjData(model)
 
 print("模型加载成功！")
 print("关节数量：",model.njnt)
+# print("qpos数量：",model.nq)
+# print("qvel数量：",model.nv)
 
 with mujoco.viewer.launch_passive(model,data) as viewer:
 
@@ -27,5 +29,6 @@ with mujoco.viewer.launch_passive(model,data) as viewer:
     viewer.cam.lookat[:] = [0,0,0.5]
 
     while viewer.is_running():
+        # print(data.qpos[:7]) #打印7个关节角度
         mujoco.mj_step(model,data)
         time.sleep(0.01)
