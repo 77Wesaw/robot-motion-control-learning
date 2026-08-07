@@ -35,8 +35,8 @@ class Plotter:
         qpos = data["qpos"]
         qdes = data["qdes"]
         time = data["time"]
-        plt.plot(time,qpos,label="qpos")
-        plt.plot(time,qdes,"--",label="q_des")
+        plt.plot(time,qpos[:,joint_id],label="qpos")
+        plt.plot(time,qdes[:,joint_id],"--",label="q_des")
         plt.xlabel("time(s)")
         plt.ylabel("joint_angle(rad)")
         plt.title(f"joint {joint_id} angle")
