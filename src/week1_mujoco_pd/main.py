@@ -22,7 +22,7 @@ from frame_prac.utils.DataLogger import DataLogger
 from frame_prac.utils.Plotter import Plotter
 
 #单关节和多关节模式切换改这里
-mode = "single"
+mode = "all"
 
 if mode == "all":
     joint_id = None
