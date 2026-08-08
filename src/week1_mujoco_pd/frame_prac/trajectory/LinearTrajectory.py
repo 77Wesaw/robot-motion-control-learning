@@ -1,4 +1,4 @@
-
+import numpy as np
 
 class LinearTrajectory:
     def __init__(self,qstart,qgoal,duration):

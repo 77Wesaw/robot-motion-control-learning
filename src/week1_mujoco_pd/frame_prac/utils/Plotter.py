@@ -17,23 +17,32 @@ class Plotter:
             plt.plot(time,qpos[:,i],label="q_pos")
             plt.plot(time,qdes[:,i],"--",label="q_des")
             plt.xlabel("time(s)")
-            plt.ylabel(f"joint_angle {i} (rad)")
-            plt.title(f"joint{i+1}")
+            plt.ylabel(f"joint {i} angle (rad)")
             plt.legend()
             plt.grid()
         plt.show()
     
     def plot_single(self,joint_id):
-        plt.figure(figsize=(8,10))
+        plt.figure(figsize=(10,8))
         data = self.logger.get_numpy_data()
         qpos = data["qpos"]
         qdes = data["qdes"]
+        qvel = data["qvel"]
         time = data["time"]
-        plt.plot(time,qpos[:,joint_id],label="qpos")
-        plt.plot(time,qdes[:,joint_id],"--",label="q_des")
+        plt.plot(time,qpos,label="qpos")
+        plt.plot(time,qdes,"--",label="q_des")
         plt.xlabel("time(s)")
         plt.ylabel("joint_angle(rad)")
         plt.title(f"joint {joint_id} angle")
+        plt.legend()
+        plt.grid()
+        plt.show()
+
+        plt.figure(figsize=(10,8))
+        plt.plot(time,qvel,label="qvel")
+        plt.xlabel("time(s)")
+        plt.ylabel("joint_angle_velocity(rad/s)")
+        plt.title(f"joint {joint_id} angle velocity")
         plt.legend()
         plt.grid()
         plt.show()
