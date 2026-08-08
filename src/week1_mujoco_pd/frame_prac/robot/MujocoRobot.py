@@ -8,19 +8,19 @@ class MujocoRobot(RobotBase):
         self.viewer = None
 
     def get_state(self):
-        qpos = self.data.q[:7].copy()
+        qpos = self.data.qpos[:7].copy()
         qvel= self.data.qvel[:7].copy()
         return qpos,qvel
     
     def reset(self):
         mujoco.mj_resetData(self.model,self.data)
-        mujoco.forward(self.model,self.data)
+        mujoco.mj_forward(self.model,self.data)
 
     def send_control(self,control):
         self.data.ctrl[:7] = control
 
     def step(self):
-        mujoco.step(self.model,self.data)
+        mujoco.mj_step(self.model,self.data)
 
     def get_time(self):
         time = self.data.time
