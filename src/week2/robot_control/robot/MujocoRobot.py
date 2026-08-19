@@ -5,7 +5,6 @@ class MujocoRobot(RobotBase):
     def  __init__(self,xml,joint_id=None):
         self.model = mujoco.MjModel.from_xml_path(xml)
         self.data = mujoco.MjData(self.model)
-        self.viewer = None
         self.joint_id = joint_id
 
     def get_state(self):
