@@ -51,11 +51,9 @@ class JacobianIK:
             null_flag = ( np.linalg.norm(dq_null) <= torlerance )
             if task_flag and null_flag :
                 break
-            dq = (dq_task + dq_null) * step_size
-            q += dq
+            dq = dq_task + dq_null
+            q += dq * step_size
         return q
-
-
     
     def orentation_error(self,R,Rd):
         """

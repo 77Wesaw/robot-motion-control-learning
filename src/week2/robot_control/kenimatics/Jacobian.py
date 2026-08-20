@@ -37,6 +37,6 @@ class MujocoJacobian:
 
         mujoco.mj_jacBody(model,data,J_pos,J_rot,self.ee_body_id)
 
-        J = np.vstack((J_pos,J_rot))
+        J = np.concatenate((J_pos,J_rot))
 
         return J

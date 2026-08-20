@@ -7,8 +7,8 @@ class MujocoViewer:
     
     def launch(self):
         self.viewer = mujoco.viewer.launch_passive(self.robot.model,self.robot.data)
-        self.viewer.cam.lookat[:] = [0,0,0.5]
-        self.viewer.cam.distance = 2.5
+        self.viewer.cam.lookat[:] = [0,0,0.6]
+        self.viewer.cam.distance = 2
 
     def sync(self):
             self.viewer.sync()
